@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const classes = useStyles();
   const apiUrl = process.env.REACT_APP_API_BASE_URL;
-  // console.log(process.env.REACT_APP_API_BASE_URL);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
