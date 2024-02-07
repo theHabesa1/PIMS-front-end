@@ -11,7 +11,7 @@ To get started with the project, follow these steps:
 1. Clone the repository to your local machine.
 
 ```bash
-git clone <repository_url>
+git clone [<repository_url>](https://github.com/theHabesa1/PIMS-front-end)
 cd frontend
 ```
 
