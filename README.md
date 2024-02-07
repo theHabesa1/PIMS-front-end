@@ -12,7 +12,7 @@ To get started with the project, follow these steps:
 
 ```bash
 git clone [<repository_url>](https://github.com/theHabesa1/PIMS-front-end)
-cd frontend
+cd PIMS-front-end
 ```
 
 2. Install the dependencies using npm.
