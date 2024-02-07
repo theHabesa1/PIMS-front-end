@@ -19,12 +19,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
+  // console.log(process.env.REACT_APP_API_BASE_URL);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/auth/login', {
+      const response = await axios.post(`${apiUrl}/auth/login`, {
         username,
         password,
       });

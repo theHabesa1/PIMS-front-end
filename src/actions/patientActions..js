@@ -74,12 +74,14 @@ const deletePatientFailure = (error) => ({
   payload: error,
 });
 
+const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
 
 export const fetchPatients = () => {
   return async (dispatch) => {
     dispatch(fetchPatientsRequest());
     try {
-      const response = await axios.get('http://localhost:8080/patients');
+      const response = await axios.get(`${apiUrl}/patients`);
       dispatch(fetchPatientsSuccess(response.data));
     } catch (error) {
       dispatch(fetchPatientsFailure(error.message));
@@ -91,8 +93,9 @@ export const addPatient = (patient) => {
   return async (dispatch) => {
     dispatch(addPatientRequest());
     try {
-      const response = await axios.post('http://localhost:8080/patients', patient);
+      const response = await axios.post(`${apiUrl}/patients`, patient);
       dispatch(addPatientSuccess(response.data));
+      dispatch(fetchPatientsRequest());
     } catch (error) {
       dispatch(addPatientFailure(error.message));
     }
@@ -103,7 +106,7 @@ export const editPatient = (patient) => {
   return async (dispatch) => {
     dispatch(editPatientRequest());
     try {
-      const response = await axios.put(`http://localhost:8080/patients/${patient.id}`, patient);
+      const response = await axios.put(`${apiUrl}/patients/${patient.id}`, patient);
       dispatch(editPatientSuccess(response.data));
     } catch (error) {
       dispatch(editPatientFailure(error.message));
@@ -115,7 +118,7 @@ export const deletePatient = (patientId) => {
   return async (dispatch) => {
     dispatch(deletePatientRequest());
     try {
-      await axios.delete(`http://localhost:8080/patients/${patientId}`);
+      await axios.delete(`${apiUrl}/patients/${patientId}`);
       dispatch(deletePatientSuccess(patientId));
     } catch (error) {
       dispatch(deletePatientFailure(error.message));

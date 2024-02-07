@@ -20,8 +20,8 @@ const DataTable = () => {
     dispatch(fetchPatients());
   }, [dispatch]);
 
-  const rows = patients.map((patient) => ({
-    id: patient.PatientId || patient.id,
+  const rows = patients.map((patient,index) => ({
+    id: patient.PatientId || patient.id || index,
     name: patient.Name,
     age: patient.Age,
     sex: patient.Sex,

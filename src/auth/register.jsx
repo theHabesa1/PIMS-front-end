@@ -20,12 +20,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = () => {
   const classes = useStyles();
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/auth/register', {
+      const response = await axios.post(`${apiUrl}/auth/register`, {
         username,
         password,
       });
